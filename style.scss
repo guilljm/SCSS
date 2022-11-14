@@ -1,0 +1,37 @@
+.margin-top {
+    margin-top: 50px;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@mixin myRing ($size, $color) {
+    border: $size/50 solid $color;
+    border-radius: 50%;
+    height: $size;
+    width: $size;
+    box-shadow: $size/100 $size/100 $color;
+}
+
+.ring-previous {
+    @include myRing(100px, orange);
+}
+
+
+.ring-one {
+    @include myRing(200px, yellow);
+}
+
+@for $i from 1 through 6 {
+    .ring#{$i} {
+        @include myRing(100+$i*10px, orange);
+    }
+}
